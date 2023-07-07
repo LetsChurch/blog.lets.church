@@ -1,0 +1,59 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import SocialLink from '../components/social-link.astro';
+import logoUrl from '../assets/logo.png';
+import facebookLogoUrl from '../assets/brand-facebook.png';
+import twitterLogoUrl from '../assets/brand-twitter.png';
+import githubLogoUrl from '../assets/brand-github.png';
+import gitlabLogoUrl from '../assets/brand-gitlab.png';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={logoUrl} />
+
+    <link rel="shortcut icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <meta name="theme-color" content="#6366f1" />
+  </head>
+
+  <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
+    <header class="mb-5">
+      <a href="/">
+        <img src={logoUrl} class="max-w-[300px] mx-auto" />
+      </a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="text-center my-5">
+      <div class="mb-3">
+        <a href="https://lets.church" class="text-xl">Visit Let's Church</a>
+      </div>
+      <div class="flex justify-center">
+        <SocialLink
+          src={facebookLogoUrl}
+          href="https://www.facebook.com/profile.php?id=100092315746719"
+        />
+        <SocialLink
+          src={twitterLogoUrl}
+          href="https://twitter.com/lets_church"
+        />
+        <SocialLink src={githubLogoUrl} href="https://github.com/LetsChurch/" />
+        <SocialLink src={gitlabLogoUrl} href="https://gitlab.com/LetsChurch/" />
+      </div>
+    </footer>
+  </body>
+</html>

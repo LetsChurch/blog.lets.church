@@ -1,0 +1,30 @@
+---
+import Main from '../layouts/main.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+---
+
+<Main>
+  <ul class="space-y-3">
+    {
+      posts.map((post) => (
+        <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
+          <div>
+            <a href={`/${post.slug}`}>{post.data.title}</a>
+          </div>
+          <time
+            datetime={post.data.pubDate.toISOString()}
+            class="text-text-muted text-sm italic pt-1"
+          >
+            {post.data.pubDate.toLocaleDateString('en-us', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+            })}
+          </time>
+        </li>
+      ))
+    }
+  </ul>
+</Main>
