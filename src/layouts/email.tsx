@@ -96,11 +96,11 @@ export function renderEmail(
                 />
                 <MjmlSocialElement
                   src={githubLogoUrl}
-                  href="https://github.com/LetsChurch/"
+                  href="https://github.com/LetsChurch"
                 />
                 <MjmlSocialElement
                   src={gitlabLogoUrl}
-                  href="https://gitlab.com/LetsChurch/"
+                  href="https://gitlab.com/LetsChurch"
                 />
               </MjmlSocial>
             </MjmlColumn>
